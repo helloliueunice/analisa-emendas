@@ -1,5 +1,9 @@
 # 🏛️ AnalisaEmendas
 
+[![Abrir no Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://emendas-govbr-ia.streamlit.app/)
+
+**App publicado:** https://emendas-govbr-ia.streamlit.app/ · **Código:** https://github.com/helloliueunice/analisa-emendas
+
 **Protótipo de IA para apoiar a análise de propostas oriundas de emendas parlamentares** nas fases de
 formalização e acompanhamento das parcerias: plano de trabalho, documentação exigida pelo normativo,
 verificação de custos e legitimidade de assinatura digital.
@@ -38,7 +42,7 @@ A IA só *sugere*; sugestões aparecem marcadas com 🤖 e o analista decide.
 Pré-requisitos: Python 3.10+ e Git.
 
 ```bash
-git clone https://github.com/<sua-conta>/analisa-emendas.git
+git clone https://github.com/helloliueunice/analisa-emendas.git
 cd analisa-emendas
 python -m venv .venv
 source .venv/bin/activate        # Windows: .venv\Scripts\activate
