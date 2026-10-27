@@ -1,0 +1,11 @@
+data,fornecedor_cnpj,fornecedor_nome,nf_numero,valor,meta,natureza_despesa
+2026-12-10,11.444.777/0001-61,Produtora Fictícia Lumen Ltda,1021,48000.00,1,33.90.39
+2027-01-20,11.444.777/0001-61,Produtora Fictícia Lumen Ltda,1035,52000.00,1,33.90.39
+2027-01-20,11.444.777/0001-61,Produtora Fictícia Lumen Ltda,1035,52000.00,1,33.90.39
+2027-02-05,22.333.444/0001-00,Locadora Fictícia Foco,77,9800.00,1,33.90.39
+2027-02-12,55.666.777/0001-81,Gráfica Fictícia Papel Bom,310,4200.00,2,33.90.30
+2027-02-19,55.666.777/0001-81,Gráfica Fictícia Papel Bom,318,3900.00,2,33.90.30
+2027-02-26,55.666.777/0001-81,Gráfica Fictícia Papel Bom,325,4500.00,2,33.90.30
+2027-03-10,12.345.678/0001-95,Município Exemplo de Ourilândia,9,6000.00,2,33.90.39
+2027-03-15,11.444.777/0001-61,Produtora Fictícia Lumen Ltda,1050,15000.00,3,33.90.39
+2027-11-20,11.444.777/0001-61,Produtora Fictícia Lumen Ltda,1102,20000.00,1,33.90.39

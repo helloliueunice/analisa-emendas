@@ -39,7 +39,7 @@ def test_plano_adequado_sem_impeditivos():
 
 def test_plano_com_problemas():
     res = analisar_plano(_plano("plano_trabalho_com_problemas.json"))
-    esperadas = {"PT-02", "PT-04", "PT-06", "PT-07", "PT-08", "PT-10", "PT-15", "PT-16", "PT-18"}
+    esperadas = {"PT-02", "PT-04", "PT-05", "PT-23", "PT-07", "PT-08", "PT-10", "PT-15", "PT-16", "PT-18", "PT-21"}
     assert esperadas <= _regras(res), _regras(res)
     assert res.tem_impeditivo
 
@@ -106,3 +106,51 @@ def test_parecer_e_lgpd():
     assert gerar_docx(md)[:2] == b"PK"
     assert "[CPF]" in pseudonimizar("CPF 123.456.789-09")
     assert Severidade.CRITICA.peso > Severidade.ALTA.peso
+
+
+def test_acompanhamento():
+    from core.acompanhamento import analisar_execucao
+
+    r = analisar_execucao(_plano("plano_trabalho_adequado.json"), pd.read_csv(EX / "execucao_pagamentos.csv"),
+                          pd.read_csv(EX / "execucao_fisica.csv"), pd.read_csv(EX / "execucao_creditos.csv"),
+                          hoje=date(2027, 12, 15))
+    assert {"ACO-01", "ACO-02", "ACO-03", "ACO-04", "ACO-06", "ACO-07", "ACO-09", "ACO-10"} <= _regras(r)
+
+
+def test_cruzamentos():
+    docs = [{"nome": "cnd_federal.txt", "texto": "Receita Federal certidão negativa CNPJ: 11.444.777/0001-61 "
+                                                 "Válida até 31/12/2099"}]
+    r = analisar_documentos(docs, "osc", cnpj_proponente="12.345.678/0001-95")
+    assert "DOC-06" in _regras(r)
+    orc = pd.read_csv(EX / "orcamento_proposta.csv")
+    ref = pd.read_csv(EX / "precos_referencia.csv")
+    assert "CUS-06" in _regras(analisar_custos(orc, ref, valor_plano=1_000_000))
+
+
+def test_auditoria():
+    from core.auditoria import registro, verificar_selo
+
+    res = analisar_plano(_plano("plano_trabalho_adequado.json"))
+    reg = registro({"proposta": "X"}, {"plano": "abc"}, [res])
+    assert verificar_selo(reg)
+    reg["analista"] = "adulterado"
+    assert not verificar_selo(reg)
+
+
+def test_guardrails_ia():
+    from core.llm import validar_achados_ia
+
+    out = validar_achados_ia([
+        {"regra": "IA-1", "severidade": "Crítica", "mensagem": "m", "evidencia": "Apoio a ações"},
+        {"regra": "IA-2", "severidade": "Alta", "mensagem": "m", "evidencia": "texto inventado"},
+        {"regra": "IA-3", "severidade": "Alta", "mensagem": ""},
+    ], "Objeto: Apoio a  ações culturais")
+    assert [a.severidade for a in out] == [Severidade.ALTA, Severidade.INFO]
+
+
+def test_qualidade_regras():
+    from core.avaliacao import avaliar, gerar_base
+
+    for val in (False, True):
+        m, _ = avaliar(gerar_base(200, validacao=val))
+        assert m["FP"].sum() == 0 and m["FN"].sum() == 0, m

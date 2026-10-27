@@ -104,13 +104,36 @@ def analisar_plano_ia(plano: dict | str, contexto_normativo: str = "") -> tuple[
     else:
         usuario = f"PLANO DE TRABALHO:\n{usuario}"
     dados = _json(_chamar(PROMPT_SISTEMA, usuario))
+    return validar_achados_ia(dados.get("achados", []), conteudo), dados.get("sintese", "")
+
+
+def _compacto(t: str) -> str:
+    return re.sub(r"\s+", " ", str(t)).strip().lower()
+
+
+def validar_achados_ia(brutos: list[dict], texto_fonte: str) -> list[Achado]:
+    """Guarda-corpos contra alucinação:
+    1. a IA nunca produz achado *impeditivo* (Crítica vira Alta): só regras auditáveis impedem;
+    2. a evidência citada precisa existir literalmente no plano; se não existir, o achado é
+       rebaixado a Informativa e marcado como 'evidência não localizada';
+    3. achados sem mensagem são descartados."""
     mapa = {s.value: s for s in Severidade}
-    achados = [
-        Achado("Plano de Trabalho (IA)", a.get("regra", "IA"), mapa.get(a.get("severidade"), Severidade.MEDIA),
-               a.get("mensagem", ""), a.get("recomendacao", ""), evidencia=a.get("evidencia", ""), origem="ia")
-        for a in dados.get("achados", [])
-    ]
-    return achados, dados.get("sintese", "")
+    fonte = _compacto(texto_fonte)
+    saida = []
+    for a in brutos or []:
+        if not str(a.get("mensagem", "")).strip():
+            continue
+        sev = mapa.get(a.get("severidade"), Severidade.MEDIA)
+        if sev == Severidade.CRITICA:
+            sev = Severidade.ALTA
+        evid = str(a.get("evidencia", "") or "").strip()
+        msg = str(a["mensagem"]).strip()
+        if evid and _compacto(evid).strip('"\'') not in fonte:
+            sev = Severidade.INFO
+            msg += " [evidência citada pela IA não localizada no plano – conferir]"
+        saida.append(Achado("Plano de Trabalho (IA)", str(a.get("regra", "IA"))[:80], sev, msg,
+                            str(a.get("recomendacao", "")), evidencia=evid, origem="ia"))
+    return saida
 
 
 def estruturar_plano_ia(texto: str) -> dict:

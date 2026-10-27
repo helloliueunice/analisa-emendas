@@ -1,0 +1,25 @@
+# Parâmetros das regras – ajustáveis pelo órgão sem alterar código.
+# Toda alteração deve ser registrada (o hash deste arquivo entra na trilha de auditoria).
+versao: "2026.10"
+
+plano_trabalho:
+  objeto_min_caracteres: 40
+  justificativa_min_caracteres: 300
+  tolerancia_centavos: 0.01
+
+documentos:
+  dias_alerta_vencimento: 15
+  score_minimo_classificacao: 2
+  caracteres_min_por_pagina: 80     # abaixo disso: provável digitalização (OCR)
+
+custos:
+  limite_sobrepreco: 0.20           # 20% acima da referência
+  limite_inexequivel: -0.50
+  similaridade_minima: 0.60
+  concentracao_abc: 0.50
+
+acompanhamento:
+  descompasso_fisico_financeiro_pp: 30   # pontos percentuais
+  dias_recurso_parado: 180
+  fracionamento_qtd_minima: 3            # nº de notas do mesmo fornecedor
+  fracionamento_valor_maximo: 10000.00   # cada nota abaixo deste valor

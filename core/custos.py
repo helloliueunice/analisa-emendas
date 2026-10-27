@@ -12,6 +12,8 @@ import unicodedata
 
 import pandas as pd
 
+from .config import p as _p
+from .formato import brl
 from .modelos import Achado, ResultadoModulo, Severidade
 
 MOD = "Verificação de Custos"
@@ -33,8 +35,13 @@ def _casar(desc: str, ref: pd.DataFrame, limiar: float) -> tuple[int | None, flo
     return (idx, melhor) if melhor >= limiar else (None, melhor)
 
 
-def analisar_custos(orc: pd.DataFrame, ref: pd.DataFrame, limite_sobrepreco: float = 0.20,
-                    limiar_similaridade: float = 0.6) -> ResultadoModulo:
+def analisar_custos(orc: pd.DataFrame, ref: pd.DataFrame, limite_sobrepreco: float | None = None,
+                    limiar_similaridade: float | None = None,
+                    valor_plano: float | None = None) -> ResultadoModulo:
+    limite_sobrepreco = _p("custos", "limite_sobrepreco", 0.20) if limite_sobrepreco is None else limite_sobrepreco
+    limiar_similaridade = _p("custos", "similaridade_minima", 0.6) if limiar_similaridade is None else limiar_similaridade
+    lim_inex = _p("custos", "limite_inexequivel", -0.5)
+    lim_abc = _p("custos", "concentracao_abc", 0.5)
     res = ResultadoModulo(MOD)
     orc = orc.copy()
     ref = ref.copy()
@@ -64,11 +71,11 @@ def analisar_custos(orc: pd.DataFrame, ref: pd.DataFrame, limite_sobrepreco: flo
                 sev = Severidade.ALTA if desvio > 2 * limite_sobrepreco else Severidade.MEDIA
                 res.achados.append(Achado(
                     MOD, "CUS-01 Sobrepreço", sev,
-                    f"Item {lin['item']} – '{lin['descricao']}': R$ {lin['valor_unitario']:,.2f} está "
-                    f"{desvio:+.0%} acima da referência (R$ {preco_ref:,.2f}).",
+                    f"Item {lin['item']} – '{lin['descricao']}': {brl(lin['valor_unitario'])} está "
+                    f"{desvio:+.0%} acima da referência ({brl(preco_ref)}).",
                     "Solicitar justificativa ou ao menos 3 cotações; ajustar ao preço de referência.",
                     FUND, f"Ref.: {ref.loc[idx, 'descricao']} ({ref.loc[idx].get('fonte', 'referência')})"))
-            elif desvio < -0.5:
+            elif desvio < lim_inex:
                 situacao = "Preço muito abaixo (inexequível?)"
                 res.achados.append(Achado(
                     MOD, "CUS-02 Possível inexequibilidade", Severidade.INFO,
@@ -105,11 +112,17 @@ def analisar_custos(orc: pd.DataFrame, ref: pd.DataFrame, limite_sobrepreco: flo
         total = tab["Total proposto"].sum()
         if total:
             top = tab.loc[tab["Total proposto"].idxmax()]
-            if top["Total proposto"] / total > 0.5 and len(tab) > 1:
+            if top["Total proposto"] / total > lim_abc and len(tab) > 1:
                 res.achados.append(Achado(
                     MOD, "CUS-05 Concentração", Severidade.INFO,
                     f"Item {top['Item']} concentra {top['Total proposto'] / total:.0%} do orçamento.",
                     "Priorizar a conferência de especificação e preço deste item (curva ABC)."))
+    total_prop = float(tab["Total proposto"].sum()) if not tab.empty else 0.0
+    if valor_plano and abs(total_prop - valor_plano) > 0.01:
+        res.achados.append(Achado(
+            MOD, "CUS-06 Orçamento x plano", Severidade.ALTA,
+            f"Orçamento detalhado soma {brl(total_prop)}, mas o plano de trabalho prevê "
+            f"{brl(valor_plano)}.", "Conciliar orçamento e plano de aplicação.", FUND))
     res.resumo = {"tabela": tab, "total_proposto": float(tab["Total proposto"].sum()) if not tab.empty else 0.0,
                   "excesso_estimado": excesso}
     return res

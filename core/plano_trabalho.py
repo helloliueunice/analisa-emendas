@@ -13,10 +13,13 @@ from __future__ import annotations
 import re
 from datetime import date
 
+from .config import p as _p
 from .modelos import Achado, ResultadoModulo, Severidade
 
 MOD = "Plano de Trabalho"
-TOL = 0.01  # tolerância de centavos
+TOL = _p("plano_trabalho", "tolerancia_centavos", 0.01)
+OBJ_MIN = _p("plano_trabalho", "objeto_min_caracteres", 40)
+JUST_MIN = _p("plano_trabalho", "justificativa_min_caracteres", 300)
 
 FUND_PT = "Decreto 11.531/2023 e Portaria Conjunta MGI/MF/CGU 33/2023 (conteúdo do plano de trabalho)"
 FUND_LC210 = "LC 210/2024 (vinculação do objeto à finalidade/funcional da emenda)"
@@ -39,12 +42,22 @@ TERMOS_GENERICOS = [
     "material de consumo em geral", "a definir", "conforme necessidade",
 ]
 
+# Elementos essenciais da justificativa (radicais, para tolerar variações de redação).
+# Calibrado na base sintética de core/avaliacao.py; recalibrar com amostra real rotulada.
 ELEMENTOS_JUSTIFICATIVA = {
-    "problema/diagnóstico": ["problema", "diagnóstico", "carência", "demanda", "déficit", "necessidade"],
-    "público-alvo": ["público", "beneficiári", "atendid", "população", "famílias", "alunos", "artistas"],
-    "resultados esperados": ["resultado", "impacto", "benefício", "melhoria", "ampliar", "ampliação"],
-    "alinhamento à política pública": ["política", "programa", "plano nacional", "pnc", "ppa", "lei "],
+    "problema/diagnóstico": ["problema", "diagnóstic", "carênc", "demanda", "déficit", "necessidad", "falta",
+                             "ausênc", "não possui", "não há", "sem acesso", "interditad", "risco", "precári",
+                             "raramente", "escass", "insuficien", "levantamento"],
+    "público-alvo": ["público", "beneficiári", "atendid", "populaç", "famílias", "alunos", "estudantes",
+                     "artistas", "pessoas", "comunidade", "jovens", "crianças", "idosos", "espectador",
+                     "grupos", "mestres", "moradores", "escolas"],
+    "resultados esperados": ["resultado", "impacto", "benefíci", "melhori", "ampli", "espera-se", "estima-se",
+                             "pretende-se", "permitirá", "possibilit", "gerar", "retomar", "reabertura",
+                             "aproxim", "fortalec", "garantir"],
 }
+# Alinhamento explícito à política pública: recomendado, não impeditivo (regra informativa PT-22).
+TERMOS_POLITICA = ["política", "programa", "plano nacional", "plano municipal", "plano estadual", "pnc", "ppa",
+                   "lei ", "sistema nacional", "meta do", "metas do"]
 
 
 # ----------------------------------------------------------------- utilidades
@@ -108,7 +121,7 @@ def analisar_plano(pt: dict) -> ResultadoModulo:
     objeto = str(pt.get("objeto") or "")
     if objeto:
         obj_l = objeto.lower()
-        if len(objeto) < 40:
+        if len(objeto) < OBJ_MIN:
             add(Achado(MOD, "PT-03 Objeto sucinto", Severidade.ALTA,
                        f"Objeto com apenas {len(objeto)} caracteres; pode não permitir aferir o que será entregue.",
                        "Pedir descrição com o quê, quanto, onde e para quem.", FUND_PT, objeto))
@@ -122,17 +135,29 @@ def analisar_plano(pt: dict) -> ResultadoModulo:
     just = str(pt.get("justificativa") or "")
     if just:
         jl = just.lower()
-        if len(just) < 300:
+        if len(just) < JUST_MIN:
             add(Achado(MOD, "PT-05 Justificativa curta", Severidade.MEDIA,
-                       f"Justificativa com {len(just)} caracteres (referência mínima sugerida: 300).",
+                       f"Justificativa com {len(just)} caracteres (referência mínima sugerida: {JUST_MIN}).",
                        "Solicitar diagnóstico, público-alvo e resultados esperados.", FUND_PT))
         ausentes = [nome for nome, termos in ELEMENTOS_JUSTIFICATIVA.items()
                     if not any(t in jl for t in termos)]
-        if ausentes:
-            sev = Severidade.ALTA if len(ausentes) >= 2 else Severidade.MEDIA
-            add(Achado(MOD, "PT-06 Elementos da justificativa", sev,
-                       "A justificativa não evidencia: " + "; ".join(ausentes) + ".",
+        # A heurística lexical NÃO generalizou no conjunto de validação (ver AVALIACAO.md): só é
+        # impeditiva/alta quando nenhum elemento é reconhecível. O sinal parcial vira nota
+        # informativa (PT-23), que não altera a conclusão e pede juízo semântico (IA ou analista).
+        if len(ausentes) == len(ELEMENTOS_JUSTIFICATIVA):
+            add(Achado(MOD, "PT-06 Elementos da justificativa", Severidade.ALTA,
+                       "A justificativa não evidencia problema, público-alvo nem resultados esperados.",
                        "Diligenciar o proponente para demonstrar nexo entre problema, objeto e resultados.",
+                       FUND_PT))
+        elif len(ausentes) >= 2:
+            add(Achado(MOD, "PT-23 Triagem semântica", Severidade.INFO,
+                       "Não foram reconhecidos por palavra-chave: " + "; ".join(ausentes) + ".",
+                       "Confirmar na leitura (ou pela camada de IA) se o texto demonstra esses elementos.",
+                       FUND_PT))
+        if not any(t in jl for t in TERMOS_POLITICA):
+            add(Achado(MOD, "PT-22 Alinhamento à política", Severidade.INFO,
+                       "A justificativa não cita explicitamente a política, plano ou programa a que se vincula.",
+                       "Recomendar a indicação do instrumento de planejamento (PNC, PPA, plano setorial).",
                        FUND_PT))
 
     # 5. Finalidade / emenda --------------------------------------------------
@@ -199,6 +224,10 @@ def analisar_plano(pt: dict) -> ResultadoModulo:
             add(Achado(MOD, "PT-16 Quantidade da meta", Severidade.ALTA, f"{rot} sem quantidade física.",
                        "Informar quantidade e unidade de medida.", FUND_PT))
         etapas = m.get("etapas") or []
+        if not etapas:
+            add(Achado(MOD, "PT-21 Meta sem etapas", Severidade.MEDIA,
+                       f"{rot} sem etapas/cronograma de execução.",
+                       "Detalhar etapas com prazo e valor para permitir o acompanhamento.", FUND_PT))
         if etapas:
             soma_et = sum(_num(e.get("valor")) for e in etapas)
             if abs(soma_et - _num(m.get("valor"))) > TOL:

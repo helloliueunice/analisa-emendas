@@ -1,12 +1,67 @@
+# Tema alinhado ao Padrão Digital de Governo (Design System gov.br, @govbr-ds/core 3.7)
 [theme]
-primaryColor = "#1351B4"        # azul do padrão gov.br
-backgroundColor = "#FFFFFF"
-secondaryBackgroundColor = "#F0F4FA"
-textColor = "#1B1B1B"
-font = "sans serif"
+base = "light"
+font = "Rawline, Raleway, sans-serif"
+headingFont = "Rawline, Raleway, sans-serif"
+primaryColor = "#1351B4"                  # --blue-warm-vivid-70 (interactive)
+backgroundColor = "#FFFFFF"               # --pure-0
+secondaryBackgroundColor = "#F8F8F8"      # --gray-2
+textColor = "#333333"                     # --gray-80
+linkColor = "#1351B4"
+borderColor = "#CCCCCC"                   # --gray-20
+showWidgetBorder = true
+baseRadius = "0.375rem"
+buttonRadius = "full"                     # botões "pill" (--button-radius: 100em)
+dataframeHeaderBackgroundColor = "#EDF5FF" # --blue-warm-vivid-5
+chartCategoricalColors = ["#1351B4", "#168821", "#C05600", "#E52207", "#0C326F", "#5992ED"]
+
+[[theme.fontFaces]]
+family = "Rawline"
+url = "app/static/fonts/rawline-latin-300-normal.woff2"
+weight = 300
+style = "normal"
+
+[[theme.fontFaces]]
+family = "Rawline"
+url = "app/static/fonts/rawline-latin-400-normal.woff2"
+weight = 400
+style = "normal"
+
+[[theme.fontFaces]]
+family = "Rawline"
+url = "app/static/fonts/rawline-latin-500-normal.woff2"
+weight = 500
+style = "normal"
+
+[[theme.fontFaces]]
+family = "Rawline"
+url = "app/static/fonts/rawline-latin-600-normal.woff2"
+weight = 600
+style = "normal"
+
+[[theme.fontFaces]]
+family = "Rawline"
+url = "app/static/fonts/rawline-latin-700-normal.woff2"
+weight = 700
+style = "normal"
+
+[[theme.fontFaces]]
+family = "Rawline"
+url = "app/static/fonts/rawline-latin-800-normal.woff2"
+weight = 800
+style = "normal"
+
+[theme.sidebar]
+backgroundColor = "#F8F8F8"
+secondaryBackgroundColor = "#FFFFFF"
+textColor = "#333333"
 
 [server]
-maxUploadSize = 50              # MB por arquivo
+maxUploadSize = 50
+enableStaticServing = true          # serve a fonte Rawline local (funciona sem internet)
 
 [browser]
 gatherUsageStats = false
+
+[client]
+toolbarMode = "minimal"

@@ -1,54 +1,66 @@
 import streamlit as st
 
+import ds_govbr as ds
 from core import llm
-from ui import rodape
+from ui import estado, rodape
 
-st.title("🏛️ AnalisaEmendas")
-st.subheader("IA para apoiar a análise de propostas de emendas parlamentares")
+s = estado()
+ds.breadcrumb("Visão geral")
+st.title("Análise de emendas parlamentares com apoio de IA")
+st.markdown(
+    "<p style='font-size:18px;color:#555;max-width:900px'>Triagem e pré-análise de propostas nas fases de "
+    "<b>formalização</b> e <b>acompanhamento</b>: o servidor recebe os apontamentos com regra, evidência e "
+    "fundamento, e uma minuta de parecer para revisar — dedicando seu tempo ao juízo técnico, não à "
+    "conferência repetitiva.</p>", unsafe_allow_html=True)
 
+ds.passos(["Plano de Trabalho", "Documentos", "Custos", "Assinatura", "Execução", "Parecer auditável"])
+
+c = st.columns(3)
+with c[0]:
+    ds.card("📋", "1. Plano de Trabalho", "Completude, CNPJ, objeto, justificativa, finalidade da emenda, "
+            "fechamento de metas, etapas, desembolso e vigência. <b>23 regras.</b>")
+with c[1]:
+    ds.card("📁", "2. Checklist documental", "Itens do normativo por tipo de proponente, validade de "
+            "certidões, <b>CNPJ da certidão × proponente</b> e PDFs digitalizados.")
+with c[2]:
+    ds.card("💰", "3. Custos", "Preço de referência, sobrepreço, inexequibilidade, unidade, curva ABC e "
+            "<b>orçamento × plano</b>.")
+st.write("")
+c = st.columns(3)
+with c[0]:
+    ds.card("✍️", "4. Assinatura digital", "Integridade PAdES, alteração pós-assinatura, cadeia "
+            "ICP-Brasil/Gov.br, LCR/OCSP opcional e signatário esperado.")
+with c[1]:
+    ds.card("📈", "5. Execução", "Físico × financeiro, NF duplicada, pagamento fora da vigência, "
+            "fracionamento, autopagamento e recursos parados.")
+with c[2]:
+    ds.card("🧾", "6. Parecer auditável", "Minuta DOCX e registro com <b>hash SHA-256</b> das entradas e das "
+            "regras, para reproduzir e contestar cada conclusão.")
+
+st.subheader("Como testar em 3 minutos")
 st.markdown("""
-**Problema:** o volume de emendas parlamentares cresce a cada exercício e consome grande parte da força de
-trabalho dos órgãos, que analisam manualmente planos de trabalho, documentos, custos e assinaturas.
-
-**Proposta:** um assistente que faz a *triagem e a pré-análise* de cada proposta, aponta pendências com o
-fundamento a conferir e entrega uma **minuta de parecer** para o analista revisar — liberando o servidor para
-o juízo técnico, e não para conferências repetitivas.
+1. **Plano de Trabalho** → *Exemplo com problemas* → **Analisar**.
+2. Siga pelo menu: **Documentos**, **Custos**, **Assinatura** e **Execução** já vêm com exemplos.
+3. Em **Parecer e auditoria**, baixe a minuta (DOCX) e o registro de auditoria (JSON).
+4. Em **Qualidade das regras**, veja a precisão e a revocação medidas em base rotulada.
 """)
 
-c1, c2, c3, c4 = st.columns(4)
-c1.info("**1. Plano de Trabalho**\n\nCompletude, CNPJ, objeto genérico, nexo da justificativa, "
-        "fechamento de metas, etapas, desembolso e finalidade da emenda.")
-c2.info("**2. Documentos**\n\nChecklist configurável por normativo, leitura de validade de certidões e "
-        "arquivos não classificados.")
-c3.info("**3. Custos**\n\nComparação com preços de referência, indícios de sobrepreço, unidade divergente "
-        "e curva ABC.")
-c4.info("**4. Assinatura**\n\nIntegridade criptográfica (PAdES), alteração pós-assinatura, cadeia "
-        "ICP-Brasil/Gov.br e signatário esperado.")
-
-st.markdown("""
-### Como testar em 2 minutos
-1. Abra **1. Plano de Trabalho** e escolha o exemplo *com problemas* → clique em **Analisar**.
-2. Em **2. Checklist documental**, use os documentos de exemplo (há uma certidão vencida).
-3. Em **3. Custos**, rode o orçamento de exemplo contra a tabela de referência.
-4. Em **4. Assinatura**, compare o PDF íntegro com o adulterado.
-5. Em **5. Minuta de parecer**, baixe o parecer consolidado em DOCX.
-6. Em **Fila de triagem**, veja como várias propostas são priorizadas por risco.
-""")
-
-st.markdown("### Camada de IA generativa")
 if llm.disponivel():
-    st.success(f"Ativa — {llm.descricao_provedor()}. Sugestões da IA aparecem marcadas com 🤖.")
+    ds.mensagem("success", "Camada de IA generativa ativa.", f" {llm.descricao_provedor()}. "
+                "Sugestões da IA são marcadas e nunca são impeditivas por si só.")
 else:
-    st.warning("Desativada (nenhuma chave configurada). O app funciona com as regras determinísticas. "
-               "Para ativar, defina `ANTHROPIC_API_KEY` ou um servidor local compatível em "
-               "`.streamlit/secrets.toml` (veja o README).")
+    ds.mensagem("info", "Camada de IA generativa desativada.",
+                " O app funciona integralmente com regras determinísticas. Para ativar, configure "
+                "<code>ANTHROPIC_API_KEY</code> ou um modelo local em <code>.streamlit/secrets.toml</code>.")
 
-st.markdown("""
-### Princípios de uso responsável
-- **Humano no controle:** a ferramenta recomenda; quem decide é o analista.
-- **Explicabilidade:** cada apontamento informa a regra, a evidência e o fundamento a conferir.
-- **LGPD:** CPF, e-mail e telefone são mascarados antes de qualquer envio a modelo externo; para dados
-  sensíveis, prefira um modelo executado na infraestrutura do órgão.
-- **Rastreabilidade:** regras versionadas no Git e checklist em arquivo YAML revisável pela área jurídica.
-""")
+st.subheader("Princípios de uso responsável")
+c = st.columns(4)
+for col, (t, d) in zip(c, [
+    ("Humano no controle", "A ferramenta recomenda; o analista decide e assina."),
+    ("Explicabilidade", "Cada apontamento traz regra, evidência e fundamento a conferir."),
+    ("Proteção de dados", "Pseudonimização antes da IA e opção de modelo na rede do órgão (LGPD)."),
+    ("Rastreabilidade", "Regras versionadas no Git, parâmetros em YAML e selo SHA-256 por parecer."),
+]):
+    with col:
+        ds.card("", t, d)
 rodape()

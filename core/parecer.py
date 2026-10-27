@@ -20,20 +20,20 @@ def recomendacao_geral(resultados: list[ResultadoModulo], achados_ia: list[Achad
 
 
 def gerar_markdown(meta: dict, resultados: list[ResultadoModulo], achados_ia: list[Achado] | None = None,
-                   sintese_ia: str = "") -> str:
+                   sintese_ia: str = "", auditoria: dict | None = None) -> str:
     hoje = date.today().strftime("%d/%m/%Y")
     L = [f"# Minuta de Parecer Técnico – {meta.get('proposta', 'Proposta')}", "",
          f"**Proponente:** {meta.get('proponente', '—')}  ",
          f"**Emenda:** {meta.get('emenda', '—')}  ",
          f"**Objeto:** {meta.get('objeto', '—')}  ",
          f"**Data:** {hoje}  ", f"**Analista:** {meta.get('analista', '—')}", "",
-         "## 1. Conclusão preliminar", "", f"**{recomendacao_geral(resultados, achados_ia)}**", ""]
+         "## {n}. Conclusão preliminar", "", f"**{recomendacao_geral(resultados, achados_ia)}**", ""]
     if sintese_ia:
-        L += ["## 2. Síntese da análise (gerada por IA – revisar)", "", sintese_ia, ""]
-    L += ["## 3. Resultado por módulo", ""]
+        L += ["## {n}. Síntese da análise (gerada por IA – revisar)", "", sintese_ia, ""]
+    L += ["## {n}. Resultado por módulo", ""]
     for r in resultados:
         L.append(f"- **{r.modulo}:** {len(r.achados)} apontamento(s); índice de risco {r.nota_risco}/100")
-    L += ["", "## 4. Apontamentos", ""]
+    L += ["", "## {n}. Apontamentos", ""]
     todos = [a for r in resultados for a in r.achados] + list(achados_ia or [])
     for sev in ORDEM:
         grupo = [a for a in todos if a.severidade == sev]
@@ -48,11 +48,25 @@ def gerar_markdown(meta: dict, resultados: list[ResultadoModulo], achados_ia: li
             if a.fundamento:
                 L.append(f"  - Fundamento: {a.fundamento}")
         L.append("")
-    L += ["## 5. Ressalva", "",
+    if auditoria:
+        L += ["## {n}. Trilha de auditoria", "",
+              f"- Gerado em: {auditoria['gerado_em']}",
+              f"- Versão da ferramenta: {auditoria['versao']} · parâmetros {auditoria['versao_parametros']}",
+              f"- Hash das regras (SHA-256): {auditoria['hash_regras_sha256'][:16]}…",
+              f"- Selo do registro (SHA-256): {auditoria['selo_sha256'][:16]}…",
+              f"- Entradas analisadas: {len(auditoria['entradas_sha256'])} arquivo(s) com hash registrado",
+              f"- IA: {auditoria['ia']['provedor']}", ""]
+    L += ["## {n}. Ressalva", "",
           "Esta minuta foi gerada por ferramenta de apoio à análise. As verificações automatizadas não "
           "substituem o juízo técnico do analista nem a manifestação jurídica, e os fundamentos indicados "
           "devem ser conferidos com o normativo vigente.", ""]
-    return "\n".join(L)
+    n, saida = 0, []
+    for linha in L:  # numeração sequencial das seções
+        if "{n}" in linha:
+            n += 1
+            linha = linha.replace("{n}", str(n))
+        saida.append(linha)
+    return "\n".join(saida)
 
 
 def gerar_docx(markdown: str) -> bytes:

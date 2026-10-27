@@ -19,7 +19,14 @@ verificação de custos e legitimidade de assinatura digital.
 | **3. Custos** | comparação com preço de referência; indício de sobrepreço (tolerância ajustável); inexequibilidade; unidade divergente; itens sem referência; concentração (curva ABC); excesso estimado em R$ | Casamento por código ou por similaridade textual |
 | **4. Assinatura digital** | integridade criptográfica (PAdES); alteração após assinatura; cadeia de confiança ICP-Brasil/Gov.br; validade do certificado; carimbo do tempo; signatário esperado | pyHanko |
 | **5. Minuta de parecer** | conclusão preliminar (Apto / Apto com ressalvas / Não apto), apontamentos por severidade, fundamentos a conferir; DOCX, Markdown e CSV | Consolidação |
+| **Execução físico-financeira** | pagamento fora da vigência; NF duplicada; CNPJ de fornecedor inválido; despesa sem meta; gasto acima do previsto; descompasso físico × financeiro; meta em atraso; recursos parados; fracionamento; fornecedor = proponente | Regras sobre pagamentos, execução física e créditos |
+| **Qualidade das regras** | precisão e revocação por regra em base rotulada, com conjunto de validação separado | Avaliação |
 | **Fila de triagem** | várias propostas ordenadas por risco e valor, com encaminhamento sugerido (diligência, análise detalhada, simplificada) | Lote |
+
+Total: **54 regras** catalogadas (página *Regras e parâmetros*). Cada parecer gera um **registro de
+auditoria** com hash SHA-256 das entradas e das regras. Interface no **padrão visual do Design System
+gov.br** (tokens oficiais do `@govbr-ds/core` 3.7 e fonte Rawline servida localmente).
+Veja a avaliação crítica completa em [`AVALIACAO.md`](AVALIACAO.md).
 
 Cada apontamento traz **regra, severidade, evidência, providência sugerida e fundamento a conferir**.
 A IA só *sugere*; sugestões aparecem marcadas com 🤖 e o analista decide.
@@ -50,8 +57,10 @@ Roteiro de teste sugerido (todos os dados são fictícios):
 4. **Assinatura digital** → *Verificar*: `plano_assinado.pdf` íntegro, `plano_adulterado.pdf` inválido,
    ofício sem assinatura. Copie `data/exemplos/ac_teste.crt` para `certs/` e veja a assinatura virar
    "confiável".
-5. **Minuta de parecer** → revise o texto e baixe o DOCX.
-6. **Fila de triagem** → veja a priorização por risco.
+5. **Execução físico-financeira** → NF duplicada, pagamento após a vigência, autopagamento, fracionamento.
+6. **Parecer e auditoria** → baixe o DOCX e o registro de auditoria (JSON com selo SHA-256).
+7. **Fila de triagem** → priorização de até 300 propostas simuladas.
+8. **Qualidade das regras** → precisão/revocação em calibração e em validação.
 
 Testes automatizados: `pip install pytest && pytest -q`
 
@@ -147,16 +156,24 @@ publicação do código como software público para reuso por outros ministério
 
 ```
 app.py                      navegação do Streamlit
+ds_govbr.py                 camada do Design System gov.br (CSS sobre tokens oficiais)
+assets/govbr-ds/            tokens oficiais @govbr-ds/core 3.7 (MIT)
+static/fonts/               fonte Rawline (OFL), servida localmente
 ui.py                       componentes de interface
-views/                      páginas (plano, documentos, custos, assinatura, parecer, fila)
+views/                      11 páginas
 core/                       lógica de análise, independente da interface
   plano_trabalho.py         regras PT-01 a PT-20
   documentos.py             checklist DOC-01 a DOC-05
   custos.py                 regras CUS-01 a CUS-05
   assinatura.py             regras ASS-00 a ASS-07 (pyHanko)
   llm.py                    IA opcional (Claude API ou modelo local compatível)
+  acompanhamento.py         regras ACO-01 a ACO-10 (execução)
+  auditoria.py              trilha SHA-256 com selo
+  avaliacao.py              base rotulada e métricas por regra
+  config.py                 parâmetros + hash das regras
   parecer.py                minuta em Markdown/DOCX
 config/checklist_documental.yaml   checklist editável pela área jurídica
+config/parametros.yaml             tolerâncias e limites das regras
 data/exemplos/              dados FICTÍCIOS para teste
 certs/                      raízes de confiança (ICP-Brasil, Gov.br)
 scripts/gerar_exemplos.py   gera documentos e PDFs assinados de teste

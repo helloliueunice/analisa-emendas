@@ -10,12 +10,14 @@ from pathlib import Path
 
 import yaml
 
+from .config import p as _p
 from .modelos import Achado, ResultadoModulo, Severidade
 
 MOD = "Checklist Documental"
 RAIZ = Path(__file__).resolve().parent.parent
 CHECKLIST_PADRAO = RAIZ / "config" / "checklist_documental.yaml"
 
+RE_CNPJ = re.compile(r"\b\d{2}\.?\d{3}\.?\d{3}/?\d{4}-?\d{2}\b")
 RE_DATA = r"(\d{2})[/.-](\d{2})[/.-](\d{4})"
 RE_VALIDADE = re.compile(
     r"(v[aá]lid[ao]\s+at[eé]|validade[:\s]+|vencimento[:\s]+|v[aá]lida\s+at[eé]\s+o\s+dia)\s*" + RE_DATA,
@@ -62,7 +64,8 @@ def classificar(nome_arquivo: str, texto: str, itens: list[dict]) -> list[tuple[
 
 
 def analisar_documentos(arquivos: list[dict], tipo_proponente: str,
-                        checklist: dict | None = None, hoje: date | None = None) -> ResultadoModulo:
+                        checklist: dict | None = None, hoje: date | None = None,
+                        cnpj_proponente: str | None = None) -> ResultadoModulo:
     """`arquivos`: lista de {"nome": str, "texto": str}.
     `tipo_proponente`: "ente_publico" ou "osc"."""
     checklist = checklist or carregar_checklist()
@@ -74,7 +77,7 @@ def analisar_documentos(arquivos: list[dict], tipo_proponente: str,
     nao_classificados = []
     for arq in arquivos:
         cand = classificar(arq["nome"], arq.get("texto", ""), itens)
-        if cand and cand[0][1] >= 2:
+        if cand and cand[0][1] >= _p("documentos", "score_minimo_classificacao", 2):
             atribuicao[cand[0][0]].append({**arq, "score": cand[0][1]})
         else:
             nao_classificados.append(arq["nome"])
@@ -99,7 +102,7 @@ def analisar_documentos(arquivos: list[dict], tipo_proponente: str,
                                               f"{it['nome']} vencida em {validade:%d/%m/%Y}.",
                                               "Solicitar certidão atualizada antes da celebração.",
                                               it["fundamento"], ", ".join(d["nome"] for d in docs)))
-                elif (validade - hoje).days <= 15:
+                elif (validade - hoje).days <= _p("documentos", "dias_alerta_vencimento", 15):
                     status = f"Vence em {(validade - hoje).days} dia(s)"
                     res.achados.append(Achado(MOD, "DOC-04 Certidão a vencer", Severidade.INFO,
                                               f"{it['nome']} vence em {validade:%d/%m/%Y}.",
@@ -118,6 +121,27 @@ def analisar_documentos(arquivos: list[dict], tipo_proponente: str,
             "Fundamento": it["fundamento"],
         })
 
+    # cruzamento: CNPJ das certidões x CNPJ do proponente no plano
+    if cnpj_proponente:
+        alvo = re.sub(r"\D", "", cnpj_proponente)
+        for it in itens:
+            if not it.get("validade"):
+                continue
+            for d in atribuicao[it["id"]]:
+                achados_cnpj = {re.sub(r"\D", "", c) for c in RE_CNPJ.findall(d.get("texto", ""))}
+                if achados_cnpj and alvo not in achados_cnpj:
+                    res.achados.append(Achado(
+                        MOD, "DOC-06 CNPJ divergente", Severidade.CRITICA,
+                        f"{it['nome']} ({d['nome']}) emitida para CNPJ diferente do proponente do plano.",
+                        "Confirmar a titularidade: certidão de outra pessoa jurídica não comprova regularidade.",
+                        it["fundamento"], f"Na certidão: {', '.join(sorted(achados_cnpj))} · Plano: {alvo}"))
+    for arq in arquivos:
+        txt = arq.get("texto", "")
+        if arq["nome"].lower().endswith(".pdf") and len(txt.strip()) < _p("documentos", "caracteres_min_por_pagina", 80):
+            res.achados.append(Achado(
+                MOD, "DOC-07 Provável digitalização", Severidade.MEDIA,
+                f"'{arq['nome']}' tem pouco ou nenhum texto extraível (imagem escaneada).",
+                "Aplicar OCR ou solicitar PDF nativo; sem texto, a conferência automática fica limitada."))
     for n in nao_classificados:
         res.achados.append(Achado(MOD, "DOC-05 Arquivo não classificado", Severidade.INFO,
                                   f"Arquivo '{n}' não corresponde a nenhum item do checklist.",
