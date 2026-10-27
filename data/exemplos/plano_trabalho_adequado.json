@@ -1,0 +1,59 @@
+{
+  "numero_proposta": "EXEMPLO-001/2026",
+  "emenda": {
+    "numero": "2026.0000.0001",
+    "autor": "Parlamentar Fictício A",
+    "tipo": "RP6 - Individual (finalidade definida)",
+    "valor": 300000.00,
+    "funcao_subfuncao": "13.392"
+  },
+  "proponente": {
+    "nome": "Município Exemplo de Ourilândia",
+    "cnpj": "12.345.678/0001-95",
+    "tipo": "ente_publico - município",
+    "uf": "MG",
+    "municipio": "Ourilândia"
+  },
+  "objeto": "Realização de 40 oficinas de formação em audiovisual e 1 mostra pública de curtas-metragens para 200 jovens de 15 a 29 anos da rede pública municipal de Ourilândia/MG.",
+  "justificativa": "O diagnóstico do Plano Municipal de Cultura aponta carência de formação artística na zona rural: apenas 3% dos jovens de 15 a 29 anos participaram de alguma atividade cultural formativa em 2025. O público-alvo são 200 alunos da rede pública, selecionados por edital com cotas para estudantes de escolas rurais. Espera-se como resultado a produção de 20 curtas, a ampliação do acesso à formação cultural e a inserção de egressos em cadeias produtivas do audiovisual, em alinhamento ao Plano Nacional de Cultura (Lei 12.343/2010) e à política de formação do Sistema Nacional de Cultura.",
+  "publico_alvo": "200 jovens de 15 a 29 anos",
+  "funcao_subfuncao": "13.392",
+  "vigencia": { "inicio": "2026-11-01", "fim": "2027-10-31" },
+  "valor_global": 315000.00,
+  "valor_repasse": 300000.00,
+  "contrapartida": 15000.00,
+  "metas": [
+    {
+      "numero": 1,
+      "descricao": "Oficinas de formação em audiovisual",
+      "indicador": "Nº de oficinas realizadas com lista de presença",
+      "quantidade": 40,
+      "unidade": "oficina",
+      "valor": 210000.00,
+      "etapas": [
+        { "descricao": "Seleção de alunos e oficineiros", "valor": 10000.00, "inicio": "2026-11-01", "fim": "2026-12-31" },
+        { "descricao": "Execução das oficinas", "valor": 200000.00, "inicio": "2027-01-15", "fim": "2027-07-31" }
+      ]
+    },
+    {
+      "numero": 2,
+      "descricao": "Mostra pública de curtas-metragens",
+      "indicador": "Mostra realizada e nº de espectadores",
+      "quantidade": 1,
+      "unidade": "evento",
+      "valor": 105000.00,
+      "etapas": [
+        { "descricao": "Produção e divulgação da mostra", "valor": 105000.00, "inicio": "2027-08-01", "fim": "2027-09-30" }
+      ]
+    }
+  ],
+  "cronograma_desembolso": [
+    { "parcela": 1, "mes": "2026-12", "valor": 150000.00 },
+    { "parcela": 2, "mes": "2027-06", "valor": 150000.00 }
+  ],
+  "plano_aplicacao": [
+    { "natureza_despesa": "33.90.39", "descricao": "Serviços de terceiros – PJ (oficineiros, locação de equipamentos)", "valor": 255000.00 },
+    { "natureza_despesa": "33.90.30", "descricao": "Material de consumo", "valor": 20000.00 },
+    { "natureza_despesa": "33.90.36", "descricao": "Serviços de terceiros – PF", "valor": 40000.00 }
+  ]
+}

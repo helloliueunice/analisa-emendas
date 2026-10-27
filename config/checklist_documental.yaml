@@ -1,0 +1,103 @@
+# Checklist documental configurável.
+# Cada órgão deve REVISAR este arquivo com sua área jurídica/normativa:
+# os itens abaixo são um ponto de partida para convênios/termos de fomento
+# oriundos de emendas parlamentares e NÃO substituem o normativo vigente.
+#
+# Campos:
+#   id            identificador único
+#   nome          nome do documento
+#   aplica_a      [ente_publico, osc] (tipo de proponente)
+#   obrigatorio   true/false
+#   palavras      termos buscados no NOME do arquivo e no TEXTO extraído
+#   validade      true se o documento tem data de validade (certidões)
+#   fundamento    referência normativa a ser conferida pelo órgão
+
+versao: "2026.10-rascunho"
+itens:
+  - id: plano_trabalho
+    nome: Plano de Trabalho assinado
+    aplica_a: [ente_publico, osc]
+    obrigatorio: true
+    palavras: ["plano de trabalho", "plano_de_trabalho", "metas", "cronograma de execução"]
+    validade: false
+    fundamento: "Decreto 11.531/2023; Portaria Conjunta MGI/MF/CGU 33/2023; LC 210/2024"
+
+  - id: oficio_proposta
+    nome: Ofício de encaminhamento / proposta
+    aplica_a: [ente_publico, osc]
+    obrigatorio: true
+    palavras: ["ofício", "oficio", "encaminhamento", "proposta nº", "proposta n."]
+    validade: false
+    fundamento: "Rito do órgão concedente"
+
+  - id: cnd_federal
+    nome: Certidão de regularidade fiscal federal (CND/CPEN – RFB/PGFN)
+    aplica_a: [ente_publico, osc]
+    obrigatorio: true
+    palavras: ["receita federal", "dívida ativa da união", "certidão negativa", "certidao_federal", "pgfn"]
+    validade: true
+    fundamento: "CF art. 195 §3º; Portaria Conjunta 33/2023 (requisitos de celebração) – consultar CAUC quando ente"
+
+  - id: crf_fgts
+    nome: Certificado de Regularidade do FGTS (CRF)
+    aplica_a: [ente_publico, osc]
+    obrigatorio: true
+    palavras: ["fgts", "certificado de regularidade", "crf", "caixa econômica"]
+    validade: true
+    fundamento: "Lei 8.036/1990"
+
+  - id: cndt
+    nome: Certidão Negativa de Débitos Trabalhistas (CNDT)
+    aplica_a: [osc]
+    obrigatorio: true
+    palavras: ["débitos trabalhistas", "debitos trabalhistas", "cndt", "justiça do trabalho"]
+    validade: true
+    fundamento: "Lei 13.019/2014 e Decreto 8.726/2016 (parcerias com OSC)"
+
+  - id: cauc
+    nome: Extrato do CAUC / regularidade do ente
+    aplica_a: [ente_publico]
+    obrigatorio: true
+    palavras: ["cauc", "serviço auxiliar de informações", "tesouro nacional"]
+    validade: true
+    fundamento: "LRF art. 25; IN STN do CAUC"
+
+  - id: estatuto
+    nome: Estatuto social e ata de eleição da diretoria
+    aplica_a: [osc]
+    obrigatorio: true
+    palavras: ["estatuto", "ata de eleição", "ata de posse", "assembleia"]
+    validade: false
+    fundamento: "Lei 13.019/2014, art. 33 e 34"
+
+  - id: experiencia
+    nome: Comprovação de experiência prévia / capacidade técnica
+    aplica_a: [osc]
+    obrigatorio: true
+    palavras: ["experiência", "capacidade técnica", "atestado", "portfólio", "relatório de atividades"]
+    validade: false
+    fundamento: "Lei 13.019/2014, art. 33, V"
+
+  - id: orcamento
+    nome: Orçamento / pesquisa de preços (mínimo de 3 cotações ou referência oficial)
+    aplica_a: [ente_publico, osc]
+    obrigatorio: true
+    palavras: ["orçamento", "orcamento", "cotação", "cotacao", "pesquisa de preços", "sinapi", "painel de preços"]
+    validade: false
+    fundamento: "Lei 14.133/2021, art. 23 (parâmetros de preço) – aplicar conforme o tipo de instrumento"
+
+  - id: declaracao_contrapartida
+    nome: Declaração de contrapartida
+    aplica_a: [ente_publico]
+    obrigatorio: false
+    palavras: ["contrapartida", "declaração de contrapartida"]
+    validade: false
+    fundamento: "LDO do exercício"
+
+  - id: comprovante_endereco
+    nome: Comprovante de funcionamento no endereço
+    aplica_a: [osc]
+    obrigatorio: false
+    palavras: ["comprovante de endereço", "comprovante de residência", "funcionamento", "conta de energia"]
+    validade: false
+    fundamento: "Decreto 8.726/2016"

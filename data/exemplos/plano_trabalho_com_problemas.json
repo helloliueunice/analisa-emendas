@@ -1,0 +1,54 @@
+{
+  "numero_proposta": "EXEMPLO-002/2026",
+  "emenda": {
+    "numero": "2026.0000.0002",
+    "autor": "Parlamentar Fictício B",
+    "tipo": "RP6 - Individual (finalidade definida)",
+    "valor": 500000.00,
+    "funcao_subfuncao": "13.392"
+  },
+  "proponente": {
+    "nome": "Associação Cultural Fictícia Viva Arte",
+    "cnpj": "98.765.432/0001-00",
+    "tipo": "osc - entidade privada sem fins lucrativos",
+    "uf": "BA",
+    "municipio": "Salvador"
+  },
+  "objeto": "Apoio a ações culturais diversas",
+  "justificativa": "O projeto é muito importante para a cidade e trará benefícios.",
+  "funcao_subfuncao": "27.812",
+  "vigencia": { "inicio": "2026-11-01", "fim": "2027-04-30" },
+  "valor_global": 480000.00,
+  "valor_repasse": 480000.00,
+  "contrapartida": 0,
+  "metas": [
+    {
+      "numero": 1,
+      "descricao": "Eventos culturais",
+      "indicador": "",
+      "quantidade": 0,
+      "unidade": "evento",
+      "valor": 300000.00,
+      "etapas": [
+        { "descricao": "Realização de eventos", "valor": 250000.00, "inicio": "2026-11-01", "fim": "2027-08-30" }
+      ]
+    },
+    {
+      "numero": 2,
+      "descricao": "Aquisição de equipamentos",
+      "indicador": "Equipamentos adquiridos",
+      "quantidade": 10,
+      "unidade": "unidade",
+      "valor": 150000.00,
+      "etapas": []
+    }
+  ],
+  "cronograma_desembolso": [
+    { "parcela": 1, "mes": "2026-11", "valor": 400000.00 },
+    { "parcela": 2, "mes": "2027-09", "valor": 50000.00 }
+  ],
+  "plano_aplicacao": [
+    { "natureza_despesa": "33.50.39", "descricao": "Serviços de terceiros", "valor": 330000.00 },
+    { "natureza_despesa": "44.50.52", "descricao": "Equipamentos de som e luz", "valor": 150000.00 }
+  ]
+}

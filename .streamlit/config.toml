@@ -1,0 +1,12 @@
+[theme]
+primaryColor = "#1351B4"        # azul do padrão gov.br
+backgroundColor = "#FFFFFF"
+secondaryBackgroundColor = "#F0F4FA"
+textColor = "#1B1B1B"
+font = "sans serif"
+
+[server]
+maxUploadSize = 50              # MB por arquivo
+
+[browser]
+gatherUsageStats = false

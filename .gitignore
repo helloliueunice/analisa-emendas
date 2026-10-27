@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+.env
+.streamlit/secrets.toml
+.pytest_cache/
+.DS_Store
+# documentos reais de propostas nunca devem ir para o repositório
+dados_reais/
+uploads/
