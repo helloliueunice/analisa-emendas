@@ -1,0 +1,37 @@
+codigo,municipio,uf,lat,lon,populacao,pct_pobreza_cadunico,tem_biblioteca,tem_ponto_cultura,tem_centro_cultural,plano_municipal_cultura,rcl,execucao_historica,cauc_regular,emendas_cultura_pc_3anos
+9910001,Vale do Sabiá,UF Piloto (fictícia),-8.1582,-48.724,312000,12.7,1,1,0,1,952252298,0.52,1,0.0
+9910002,Serra Clara,UF Piloto (fictícia),-6.0219,-44.1684,87330,11.7,1,1,1,1,351896928,0.93,1,5.31
+9910003,Lagoa das Garças,UF Piloto (fictícia),-6.9585,-47.035,123308,19.3,1,1,0,0,355938494,0.68,1,7.09
+9910004,Pedra Lisa,UF Piloto (fictícia),-7.6132,-48.3598,67174,14.4,1,1,0,1,234255541,,1,46.56
+9910005,Boa Vista do Ipê,UF Piloto (fictícia),-9.6676,-48.0735,11835,41.4,1,1,1,1,39296085,,1,14.44
+9910006,Santa Rita do Cerrado,UF Piloto (fictícia),-9.3835,-46.1259,27037,19.5,1,1,0,1,99900324,0.44,1,0.6
+9910007,Morro do Jatobá,UF Piloto (fictícia),-9.5862,-47.3712,3250,37.8,0,1,0,0,10331560,0.93,1,54.69
+9910008,Nova Aurora do Rio,UF Piloto (fictícia),-7.325,-44.128,21362,21.6,1,1,1,1,70524349,0.73,1,2.64
+9910009,Cachoeira Mansa,UF Piloto (fictícia),-9.2076,-46.4932,4359,22.1,1,1,0,1,16277275,,1,2.06
+9910010,São Bento das Araras,UF Piloto (fictícia),-5.9652,-47.392,3584,21.4,1,1,0,0,13305872,,0,0.0
+9910011,Vila Rosário,UF Piloto (fictícia),-8.5268,-43.9656,41476,31.4,1,1,1,0,145356107,,1,0.0
+9910012,Campo do Buriti,UF Piloto (fictícia),-8.729,-48.2331,4347,27.6,1,1,0,1,12644165,,1,57.8
+9910013,Alto Pindaíba,UF Piloto (fictícia),-9.5739,-46.2389,30146,21.4,1,0,1,0,111862999,0.94,1,1.07
+9910014,Ribeirão Sereno,UF Piloto (fictícia),-9.4581,-44.7196,9479,18.7,0,0,0,1,29110528,0.45,1,1.16
+9910015,Mata Grande do Sul,UF Piloto (fictícia),-6.363,-47.2985,2814,23.7,1,0,0,1,10475324,0.36,1,0.0
+9910016,Bom Jardim das Pedras,UF Piloto (fictícia),-6.5379,-48.2664,12667,49.7,0,1,0,0,41957437,0.55,0,0.0
+9910017,Três Barras do Norte,UF Piloto (fictícia),-8.5829,-48.413,23288,28.0,1,1,1,1,89007167,0.66,0,17.0
+9910018,Olho d'Água Claro,UF Piloto (fictícia),-7.2652,-46.9097,6971,36.1,1,1,1,1,27514445,,1,18.92
+9910019,Barra do Tamanduá,UF Piloto (fictícia),-9.8654,-43.4739,40538,10.2,1,1,0,1,158916066,0.54,1,4.15
+9910020,Jardim das Palmeiras,UF Piloto (fictícia),-6.3191,-43.422,27405,18.6,1,1,0,0,90321408,0.96,1,0.0
+9910021,Monte Verde do Leste,UF Piloto (fictícia),-6.6392,-48.2518,10621,35.5,1,0,0,1,39841496,,1,0.0
+9910022,Riachão do Sertão,UF Piloto (fictícia),-7.0843,-44.659,2692,38.1,1,0,0,0,10611973,0.43,1,27.86
+9910023,Santa Luzia das Flores,UF Piloto (fictícia),-6.2718,-45.1905,4120,40.0,1,1,0,0,15671451,0.68,0,1.48
+9910024,Coqueiral do Brejo,UF Piloto (fictícia),-8.4778,-44.3421,27965,20.1,1,1,1,1,84642950,0.6,1,0.74
+9910025,Ponte Alta do Rio,UF Piloto (fictícia),-7.2823,-45.48,2923,34.0,1,0,0,0,10548356,0.86,1,21.2
+9910026,Várzea Nova,UF Piloto (fictícia),-7.6513,-45.7083,2539,33.5,0,0,0,0,7647239,0.52,1,2.12
+9910027,Canto do Sabiá,UF Piloto (fictícia),-10.0403,-47.2109,4860,32.9,1,0,0,0,15547630,0.62,1,11.72
+9910028,Ilha do Junco,UF Piloto (fictícia),-7.9121,-48.6937,16448,39.0,0,0,0,1,61357630,,1,0.0
+9910029,Sítio Novo das Serras,UF Piloto (fictícia),-7.5694,-48.232,5088,18.1,1,0,0,0,15108230,0.38,1,25.58
+9910030,Pau d'Arco Alegre,UF Piloto (fictícia),-8.7876,-45.9481,8551,30.3,0,0,0,0,24936225,0.65,1,16.4
+9910031,Remanso Azul,UF Piloto (fictícia),-5.8334,-43.3915,7252,50.3,0,0,0,0,27545978,0.4,1,21.21
+9910032,Lajeado das Antas,UF Piloto (fictícia),-8.774,-48.2881,4915,56.7,1,1,0,0,17744856,0.4,1,2.31
+9910033,Graúna do Sul,UF Piloto (fictícia),-7.8766,-46.8451,6451,49.2,0,0,0,1,21168438,0.86,1,17.26
+9910034,Taquaral Bonito,UF Piloto (fictícia),-9.3545,-44.2673,5237,19.2,1,0,0,0,17138937,0.88,1,2.5
+9910035,Esperança do Vale,UF Piloto (fictícia),-8.1539,-47.6611,5941,25.8,0,1,0,0,18603024,,1,1.12
+9910036,Recanto dos Ipês,UF Piloto (fictícia),-7.8456,-44.7156,19478,33.0,0,0,0,0,73194056,0.6,1,0.0

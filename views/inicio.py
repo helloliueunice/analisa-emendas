@@ -6,13 +6,30 @@ from ui import estado, rodape
 
 s = estado()
 ds.breadcrumb("Visão geral")
-st.title("Análise de emendas parlamentares com apoio de IA")
+st.title("Emendas parlamentares: destinar bem e analisar com apoio de IA")
 st.markdown(
     "<p style='font-size:18px;color:#555;max-width:900px'>Triagem e pré-análise de propostas nas fases de "
     "<b>formalização</b> e <b>acompanhamento</b>: o servidor recebe os apontamentos com regra, evidência e "
     "fundamento, e uma minuta de parecer para revisar — dedicando seu tempo ao juízo técnico, não à "
     "conferência repetitiva.</p>", unsafe_allow_html=True)
 
+st.subheader("Antes da indicação: Banco de Projetos de Impacto (piloto)")
+st.markdown("<p style='font-size:16px;color:#555;max-width:900px'>Necessidades medidas por município e projetos "
+            "certificados pelo ministério, ordenados em faixas dentro de cada programa. A escolha da emenda continua "
+            "livre e fica registrada publicamente, até o resultado.</p>", unsafe_allow_html=True)
+ds.passos(["Mapa de lacunas", "Cadastro", "Curadoria", "Vitrine para gabinetes", "Painel público"])
+c = st.columns(3)
+with c[0]:
+    ds.card("🗺️", "Lacunas e projetos", "Onde falta biblioteca, ponto de cultura ou CEU, e quem já tem projeto. "
+            "Modelo padronizado para municípios sem equipe técnica e canal para demanda <b>sem CNPJ</b>.")
+with c[1]:
+    ds.card("✅", "Curadoria e faixas", "Certificação por <b>checklist objetivo</b>; faixas Alta, Média e Baixa "
+            "<b>dentro do programa</b>, com teste de sensibilidade dos pesos.")
+with c[2]:
+    ds.card("🔎", "Integridade", "Linhas vermelhas aplicadas no cadastro, alertas de consultoria recorrente, "
+            "indicador <b>dentro × fora do banco</b>, reconciliação e registro com hash encadeado.")
+
+st.subheader("Depois da indicação: análise da proposta")
 ds.passos(["Plano de Trabalho", "Documentos", "Custos", "Assinatura", "Execução", "Parecer auditável"])
 
 c = st.columns(3)

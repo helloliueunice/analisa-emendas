@@ -15,6 +15,13 @@ ds.cabecalho()
 
 paginas = st.navigation({
     "Início": [st.Page("views/inicio.py", title="Visão geral", icon=":material/home:", default=True)],
+    "Destinação · piloto": [
+        st.Page("views/banco_mapa.py", title="Mapa de lacunas", icon=":material/map:"),
+        st.Page("views/banco_cadastro.py", title="Cadastro de projetos", icon=":material/add_box:"),
+        st.Page("views/banco_curadoria.py", title="Curadoria do ministério", icon=":material/task_alt:"),
+        st.Page("views/banco_vitrine.py", title="Vitrine para gabinetes", icon=":material/storefront:"),
+        st.Page("views/banco_painel.py", title="Painel público", icon=":material/visibility:"),
+    ],
     "Formalização": [
         st.Page("views/plano_trabalho.py", title="1. Plano de Trabalho", icon=":material/assignment:"),
         st.Page("views/documentos.py", title="2. Checklist documental", icon=":material/folder_open:"),
@@ -32,5 +39,5 @@ paginas = st.navigation({
         st.Page("views/qualidade.py", title="Qualidade das regras", icon=":material/fact_check:"),
         st.Page("views/sobre.py", title="Regras e parâmetros", icon=":material/rule:"),
     ],
-})
+}, expanded=True)
 paginas.run()

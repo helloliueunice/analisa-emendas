@@ -91,6 +91,7 @@ p, li{ line-height:1.6; }
   background:var(--ds-primary-hover) !important;
 }
 .stButton > button p, .stDownloadButton > button p{ font-weight:600 !important; }
+.stButton > button:disabled, .stButton > button[disabled]{ opacity:.45 !important; cursor:not-allowed !important; }
 
 /* foco visível (acessibilidade – eMAG/WCAG 2.4.7) */
 *:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, a:focus-visible{
@@ -148,6 +149,22 @@ label, [data-testid="stWidgetLabel"] p{ font-weight:600 !important; color:var(--
 .br-tag-ds.ia{ background:var(--gray-80,#333); color:#fff; }
 .br-tag-ds.ok{ background:var(--green-cool-vivid-50,#168821); color:#fff; }
 .br-tag-ds.prototipo{ background:var(--yellow-vivid-20,#ffcd07); color:#333; }
+/* faixas de prioridade: tons de UM azul (ordem), sem semântica de bom/ruim */
+.br-tag-ds.faixa-alta{ background:#1351B4; color:#fff; }
+.br-tag-ds.faixa-media{ background:#D4E5FF; color:#071D41; }
+.br-tag-ds.faixa-baixa{ background:#F0F0F0; color:#333; border:1px solid #CCCCCC; }
+.br-tag-ds.neutra{ background:#fff; color:#555; border:1px solid #CCCCCC; }
+
+/* cartão de projeto na vitrine */
+.br-projeto{ background:#fff; border:1px solid #e6e6e6; border-radius:8px; padding:16px 18px; margin:10px 0;
+  box-shadow:0 1px 4px rgba(0,0,0,.08); }
+.br-projeto .titulo{ font-weight:700; font-size:17px; color:#071D41; margin:4px 0 2px 0; }
+.br-projeto .meta{ font-size:13.5px; color:#555; margin-bottom:8px; }
+.br-projeto .porque{ font-size:14px; color:#333; margin-top:8px; }
+.br-barra{ display:flex; height:12px; border-radius:6px; overflow:hidden; background:#F0F0F0; margin:6px 0 4px 0; }
+.br-barra span{ display:block; height:100%; }
+.br-legenda{ display:flex; flex-wrap:wrap; gap:10px; font-size:12px; color:#555; }
+.br-legenda i{ display:inline-block; width:10px; height:10px; border-radius:2px; margin-right:4px; vertical-align:-1px; }
 
 /* ---------- expander como br-item ---------- */
 [data-testid="stExpander"] details{ border-radius:4px !important; border:1px solid var(--gray-10,#e6e6e6) !important; }
@@ -193,7 +210,7 @@ def cabecalho():
                <div class="divisor" aria-hidden="true"></div>
                <div>
                  <div class="titulo">AnalisaEmendas</div>
-                 <div class="subtitulo">Apoio à análise de propostas de emendas parlamentares</div>
+                 <div class="subtitulo">Destinação e análise de emendas parlamentares</div>
                </div>
              </div>
              <div class="acoes"><span class="br-tag-ds prototipo">PROTÓTIPO · dados fictícios</span></div>

@@ -14,6 +14,24 @@ verificação de custos e legitimidade de assinatura digital.
 
 ---
 
+## 0. Novo: Banco de Projetos de Impacto (pré-indicação, piloto v0.3)
+
+Primeira versão do desenho aprovado pelo painel de especialistas
+([documento](https://claude.ai/artifact/3tu1amp3Fg1xK1rrZh5ss2)). Antes da emenda ser indicada, o banco
+organiza a oferta de projetos para que a escolha, que continua livre, recaia sobre projeto certificado e fique
+pública até o resultado. Piloto em **cultura**, numa **UF fictícia** com 36 municípios inventados.
+
+| Tela | Quem usa | O que faz |
+|---|---|---|
+| Mapa de lacunas | Todos | Onde falta biblioteca, ponto de cultura ou CEU; lacunas sem projeto (alvo de assistência técnica) |
+| Cadastro de projetos | Ente/OSC e conselhos | Modelo padronizado ou projeto próprio; declaração de quem elaborou e quanto recebeu; linhas vermelhas aplicadas no envio; demanda cidadã **sem CNPJ** |
+| Curadoria do ministério | MinC | Elegibilidade determinística + checklist objetivo; certificar só quando tudo passa; devolução com motivo; aviso do art. 28 da LINDB |
+| Vitrine para gabinetes | Gabinetes | Só certificados, **um programa por vez**, faixas Alta/Média/Baixa, composição da nota, resumo DOCX de uma página, vínculo da emenda ao projeto, teste de sensibilidade dos pesos |
+| Painel público | Sociedade e controle | Funil, **dentro × fora do banco**, reconciliação, equidade por porte, alertas (consultoria recorrente, concentração, duplicidade), período eleitoral, registro de eventos com hash encadeado, dados abertos |
+
+Regras no código: `core/banco.py`. Dados simulados: `scripts/gerar_banco.py` → `data/banco/`.
+Em produção, os CSVs são substituídos por extrações do IBGE, MUNIC, CadÚnico, SICONFI, Transferegov e SIOP.
+
 ## 1. O que o protótipo faz
 
 | Módulo | Verificações | Técnica |

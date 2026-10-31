@@ -1,0 +1,4 @@
+id,nome,equipamento,custo_ref,valor_min,valor_max,custeio_ref,funcional,obra
+BIB,Biblioteca pública – modelo padronizado,tem_biblioteca,600000,150000,900000,120000,13.392,True
+PTC,Ponto de Cultura (Cultura Viva),tem_ponto_cultura,300000,100000,500000,60000,13.392,False
+CEU,CEU da Cultura,tem_centro_cultural,2500000,2000000,3000000,300000,13.392,True

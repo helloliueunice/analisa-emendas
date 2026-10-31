@@ -1,0 +1,13 @@
+emenda,gabinete,codigo_municipio,programa,valor,projeto_id,reconciliada,situacao
+2027.9999.0001,Gabinete A (fictício),9910019,BIB,720000.0,P022,1,empenhada
+2027.9999.0002,Gabinete B (fictício),9910019,PTC,360000.0,P030,1,empenhada
+2027.9999.0003,Gabinete C (fictício),9910026,PTC,304000.0,P029,1,empenhada
+2027.9999.0004,Gabinete D (fictício),9910021,PTC,300000.0,P014,1,empenhada
+2027.9999.0005,Gabinete E (fictício),9910035,BIB,720000.0,P028,1,empenhada
+2027.9999.0006,Gabinete F (fictício),9910022,PTC,666000.0,,1,empenhada
+2027.9999.0007,Gabinete G (fictício),9910020,outro,104000.0,,1,empenhada
+2027.9999.0008,Gabinete H (fictício),9910034,outro,348000.0,,1,paga
+2027.9999.0009,Gabinete I (fictício),9910027,PTC,465000.0,,1,paga
+2027.9999.0010,Gabinete J (fictício),9910002,PTC,704000.0,,1,paga
+2027.9999.0011,Gabinete F (fictício),9910006,outro,206000.0,,0,empenhada
+2027.9999.0012,Gabinete G (fictício),9910025,outro,633000.0,,0,paga

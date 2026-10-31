@@ -1,0 +1,947 @@
+[
+ {
+  "id": "P001",
+  "codigo_municipio": "9910014",
+  "programa": "BIB",
+  "titulo": "Biblioteca pública em Ribeirão Sereno",
+  "modelo_padrao": false,
+  "maturidade": 5,
+  "custo": 720000.0,
+  "custeio_anual": 126000.0,
+  "custeio_comprovado": true,
+  "fonte_custeio": "Orçamento municipal (LOA), função 13",
+  "beneficiarios_ano": 1125,
+  "elaborador": {
+   "tipo": "consultoria",
+   "nome": "Escritório Fictício Plano Certo",
+   "cnpj": "44.555.666/0001-81",
+   "remuneracao": "fixa",
+   "valor": 10400.0
+  },
+  "representante_gov_br_ouro": true,
+  "status": "certificado",
+  "historico": [
+   {
+    "quando": "2026-11-10",
+    "quem": "ente",
+    "acao": "cadastro"
+   },
+   {
+    "quando": "2026-11-20",
+    "quem": "MinC (curadoria)",
+    "acao": "certificado"
+   }
+  ]
+ },
+ {
+  "id": "P002",
+  "codigo_municipio": "9910032",
+  "programa": "PTC",
+  "titulo": "Ponto de Cultura em Lajeado das Antas",
+  "modelo_padrao": false,
+  "maturidade": 2,
+  "custo": 359000.0,
+  "custeio_anual": 57000.0,
+  "custeio_comprovado": true,
+  "fonte_custeio": "Orçamento municipal (LOA), função 13",
+  "beneficiarios_ano": 1006,
+  "elaborador": {
+   "tipo": "consultoria",
+   "nome": "Escritório Fictício Plano Certo",
+   "cnpj": "44.555.666/0001-81",
+   "remuneracao": "fixa",
+   "valor": 12400.0
+  },
+  "representante_gov_br_ouro": true,
+  "status": "em_curadoria",
+  "historico": [
+   {
+    "quando": "2026-11-10",
+    "quem": "ente",
+    "acao": "cadastro"
+   }
+  ]
+ },
+ {
+  "id": "P003",
+  "codigo_municipio": "9910028",
+  "programa": "PTC",
+  "titulo": "Ponto de Cultura em Ilha do Junco",
+  "modelo_padrao": true,
+  "maturidade": 4,
+  "custo": 300000.0,
+  "custeio_anual": 69000.0,
+  "custeio_comprovado": true,
+  "fonte_custeio": "Orçamento municipal (LOA), função 13",
+  "beneficiarios_ano": 4592,
+  "elaborador": {
+   "tipo": "proprio_ente",
+   "nome": "Equipe do próprio ente",
+   "cnpj": "",
+   "remuneracao": "sem_custo",
+   "valor": 0
+  },
+  "representante_gov_br_ouro": true,
+  "status": "certificado",
+  "historico": [
+   {
+    "quando": "2026-11-10",
+    "quem": "ente",
+    "acao": "cadastro"
+   },
+   {
+    "quando": "2026-11-20",
+    "quem": "MinC (curadoria)",
+    "acao": "certificado"
+   }
+  ]
+ },
+ {
+  "id": "P004",
+  "codigo_municipio": "9910027",
+  "programa": "CEU",
+  "titulo": "CEU da Cultura em Canto do Sabiá",
+  "modelo_padrao": true,
+  "maturidade": 4,
+  "custo": 2500000.0,
+  "custeio_anual": 353000.0,
+  "custeio_comprovado": true,
+  "fonte_custeio": "Orçamento municipal (LOA), função 13",
+  "beneficiarios_ano": 1318,
+  "elaborador": {
+   "tipo": "consultoria",
+   "nome": "Assessoria Fictícia Cultura+",
+   "cnpj": "33.444.555/0001-81",
+   "remuneracao": "fixa",
+   "valor": 11500.0
+  },
+  "representante_gov_br_ouro": true,
+  "status": "certificado",
+  "historico": [
+   {
+    "quando": "2026-11-10",
+    "quem": "ente",
+    "acao": "cadastro"
+   },
+   {
+    "quando": "2026-11-20",
+    "quem": "MinC (curadoria)",
+    "acao": "certificado"
+   }
+  ]
+ },
+ {
+  "id": "P005",
+  "codigo_municipio": "9910031",
+  "programa": "BIB",
+  "titulo": "Biblioteca pública em Remanso Azul",
+  "modelo_padrao": false,
+  "maturidade": 2,
+  "custo": 910000.0,
+  "custeio_anual": 128000.0,
+  "custeio_comprovado": true,
+  "fonte_custeio": "Orçamento municipal (LOA), função 13",
+  "beneficiarios_ano": 986,
+  "elaborador": {
+   "tipo": "consultoria",
+   "nome": "Consultoria Fictícia Captar Projetos",
+   "cnpj": "55.666.777/0002-62",
+   "remuneracao": "fixa",
+   "valor": 13600.0
+  },
+  "representante_gov_br_ouro": true,
+  "status": "em_curadoria",
+  "historico": [
+   {
+    "quando": "2026-11-10",
+    "quem": "ente",
+    "acao": "cadastro"
+   }
+  ]
+ },
+ {
+  "id": "P006",
+  "codigo_municipio": "9910025",
+  "programa": "PTC",
+  "titulo": "Ponto de Cultura em Ponte Alta do Rio",
+  "modelo_padrao": false,
+  "maturidade": 3,
+  "custo": 317000.0,
+  "custeio_anual": 64000.0,
+  "custeio_comprovado": true,
+  "fonte_custeio": "Orçamento municipal (LOA), função 13",
+  "beneficiarios_ano": 711,
+  "elaborador": {
+   "tipo": "proprio_ente",
+   "nome": "Equipe do próprio ente",
+   "cnpj": "",
+   "remuneracao": "sem_custo",
+   "valor": 0
+  },
+  "representante_gov_br_ouro": true,
+  "status": "certificado",
+  "historico": [
+   {
+    "quando": "2026-11-10",
+    "quem": "ente",
+    "acao": "cadastro"
+   },
+   {
+    "quando": "2026-11-20",
+    "quem": "MinC (curadoria)",
+    "acao": "certificado"
+   }
+  ]
+ },
+ {
+  "id": "P007",
+  "codigo_municipio": "9910020",
+  "programa": "CEU",
+  "titulo": "CEU da Cultura em Jardim das Palmeiras",
+  "modelo_padrao": true,
+  "maturidade": 4,
+  "custo": 2500000.0,
+  "custeio_anual": 309000.0,
+  "custeio_comprovado": true,
+  "fonte_custeio": "Orçamento municipal (LOA), função 13",
+  "beneficiarios_ano": 6891,
+  "elaborador": {
+   "tipo": "consultoria",
+   "nome": "Consultoria Fictícia Captar Projetos",
+   "cnpj": "55.666.777/0002-62",
+   "remuneracao": "fixa",
+   "valor": 8200.0
+  },
+  "representante_gov_br_ouro": true,
+  "status": "em_curadoria",
+  "historico": [
+   {
+    "quando": "2026-11-10",
+    "quem": "ente",
+    "acao": "cadastro"
+   }
+  ]
+ },
+ {
+  "id": "P008",
+  "codigo_municipio": "9910027",
+  "programa": "PTC",
+  "titulo": "Ponto de Cultura em Canto do Sabiá",
+  "modelo_padrao": true,
+  "maturidade": 4,
+  "custo": 300000.0,
+  "custeio_anual": 71000.0,
+  "custeio_comprovado": true,
+  "fonte_custeio": "Orçamento municipal (LOA), função 13",
+  "beneficiarios_ano": 771,
+  "elaborador": {
+   "tipo": "consultoria",
+   "nome": "Escritório Fictício Plano Certo",
+   "cnpj": "44.555.666/0001-81",
+   "remuneracao": "exito",
+   "valor": 0
+  },
+  "representante_gov_br_ouro": true,
+  "status": "em_curadoria",
+  "historico": [
+   {
+    "quando": "2026-11-10",
+    "quem": "ente",
+    "acao": "cadastro"
+   }
+  ]
+ },
+ {
+  "id": "P009",
+  "codigo_municipio": "9910007",
+  "programa": "BIB",
+  "titulo": "Biblioteca pública em Morro do Jatobá",
+  "modelo_padrao": true,
+  "maturidade": 4,
+  "custo": 600000.0,
+  "custeio_anual": 138000.0,
+  "custeio_comprovado": true,
+  "fonte_custeio": "Orçamento municipal (LOA), função 13",
+  "beneficiarios_ano": 344,
+  "elaborador": {
+   "tipo": "consultoria",
+   "nome": "Escritório Fictício Plano Certo",
+   "cnpj": "44.555.666/0001-81",
+   "remuneracao": "fixa",
+   "valor": 13700.0
+  },
+  "representante_gov_br_ouro": true,
+  "status": "certificado",
+  "historico": [
+   {
+    "quando": "2026-11-10",
+    "quem": "ente",
+    "acao": "cadastro"
+   },
+   {
+    "quando": "2026-11-20",
+    "quem": "MinC (curadoria)",
+    "acao": "certificado"
+   }
+  ]
+ },
+ {
+  "id": "P010",
+  "codigo_municipio": "9910013",
+  "programa": "BIB",
+  "titulo": "Biblioteca pública em Alto Pindaíba",
+  "modelo_padrao": true,
+  "maturidade": 4,
+  "custo": 600000.0,
+  "custeio_anual": 105000.0,
+  "custeio_comprovado": true,
+  "fonte_custeio": "Orçamento municipal (LOA), função 13",
+  "beneficiarios_ano": 5250,
+  "elaborador": {
+   "tipo": "proprio_ente",
+   "nome": "Equipe do próprio ente",
+   "cnpj": "",
+   "remuneracao": "sem_custo",
+   "valor": 0
+  },
+  "representante_gov_br_ouro": true,
+  "status": "em_curadoria",
+  "historico": [
+   {
+    "quando": "2026-11-10",
+    "quem": "ente",
+    "acao": "cadastro"
+   }
+  ]
+ },
+ {
+  "id": "P011",
+  "codigo_municipio": "9910004",
+  "programa": "CEU",
+  "titulo": "CEU da Cultura em Pedra Lisa",
+  "modelo_padrao": false,
+  "maturidade": 3,
+  "custo": 2676000.0,
+  "custeio_anual": 301000.0,
+  "custeio_comprovado": true,
+  "fonte_custeio": "Orçamento municipal (LOA), função 13",
+  "beneficiarios_ano": 11412,
+  "elaborador": {
+   "tipo": "proprio_ente",
+   "nome": "Equipe do próprio ente",
+   "cnpj": "",
+   "remuneracao": "sem_custo",
+   "valor": 0
+  },
+  "representante_gov_br_ouro": true,
+  "status": "rascunho",
+  "historico": [
+   {
+    "quando": "2026-11-10",
+    "quem": "ente",
+    "acao": "cadastro"
+   }
+  ]
+ },
+ {
+  "id": "P012",
+  "codigo_municipio": "9910036",
+  "programa": "PTC",
+  "titulo": "Ponto de Cultura em Recanto dos Ipês",
+  "modelo_padrao": true,
+  "maturidade": 4,
+  "custo": 300000.0,
+  "custeio_anual": 70000.0,
+  "custeio_comprovado": true,
+  "fonte_custeio": "Orçamento municipal (LOA), função 13",
+  "beneficiarios_ano": 5407,
+  "elaborador": {
+   "tipo": "proprio_ente",
+   "nome": "Equipe do próprio ente",
+   "cnpj": "",
+   "remuneracao": "sem_custo",
+   "valor": 0
+  },
+  "representante_gov_br_ouro": true,
+  "status": "certificado",
+  "historico": [
+   {
+    "quando": "2026-11-10",
+    "quem": "ente",
+    "acao": "cadastro"
+   },
+   {
+    "quando": "2026-11-20",
+    "quem": "MinC (curadoria)",
+    "acao": "certificado"
+   }
+  ]
+ },
+ {
+  "id": "P013",
+  "codigo_municipio": "9910005",
+  "programa": "BIB",
+  "titulo": "Biblioteca pública em Boa Vista do Ipê",
+  "modelo_padrao": false,
+  "maturidade": 3,
+  "custo": 610000.0,
+  "custeio_anual": 124000.0,
+  "custeio_comprovado": true,
+  "fonte_custeio": "Orçamento municipal (LOA), função 13",
+  "beneficiarios_ano": 3533,
+  "elaborador": {
+   "tipo": "consultoria",
+   "nome": "Consultoria Fictícia Captar Projetos",
+   "cnpj": "55.666.777/0002-62",
+   "remuneracao": "fixa",
+   "valor": 13000.0
+  },
+  "representante_gov_br_ouro": false,
+  "status": "rascunho",
+  "historico": [
+   {
+    "quando": "2026-11-10",
+    "quem": "ente",
+    "acao": "cadastro"
+   }
+  ]
+ },
+ {
+  "id": "P014",
+  "codigo_municipio": "9910021",
+  "programa": "PTC",
+  "titulo": "Ponto de Cultura em Monte Verde do Leste",
+  "modelo_padrao": true,
+  "maturidade": 4,
+  "custo": 300000.0,
+  "custeio_anual": 61000.0,
+  "custeio_comprovado": true,
+  "fonte_custeio": "Orçamento municipal (LOA), função 13",
+  "beneficiarios_ano": 1339,
+  "elaborador": {
+   "tipo": "osc_parceira",
+   "nome": "OSC parceira (fictícia)",
+   "cnpj": "",
+   "remuneracao": "sem_custo",
+   "valor": 0
+  },
+  "representante_gov_br_ouro": true,
+  "status": "certificado",
+  "historico": [
+   {
+    "quando": "2026-11-10",
+    "quem": "ente",
+    "acao": "cadastro"
+   },
+   {
+    "quando": "2026-11-20",
+    "quem": "MinC (curadoria)",
+    "acao": "certificado"
+   }
+  ]
+ },
+ {
+  "id": "P015",
+  "codigo_municipio": "9910002",
+  "programa": "BIB",
+  "titulo": "Biblioteca pública em Serra Clara",
+  "modelo_padrao": false,
+  "maturidade": 5,
+  "custo": 811000.0,
+  "custeio_anual": 120000.0,
+  "custeio_comprovado": false,
+  "fonte_custeio": "Orçamento municipal (LOA), função 13",
+  "beneficiarios_ano": 12766,
+  "elaborador": {
+   "tipo": "consultoria",
+   "nome": "Consultoria Fictícia Captar Projetos",
+   "cnpj": "55.666.777/0002-62",
+   "remuneracao": "fixa",
+   "valor": 20100.0
+  },
+  "representante_gov_br_ouro": true,
+  "status": "rascunho",
+  "historico": [
+   {
+    "quando": "2026-11-10",
+    "quem": "ente",
+    "acao": "cadastro"
+   }
+  ]
+ },
+ {
+  "id": "P016",
+  "codigo_municipio": "9910033",
+  "programa": "PTC",
+  "titulo": "Ponto de Cultura em Graúna do Sul",
+  "modelo_padrao": true,
+  "maturidade": 4,
+  "custo": 300000.0,
+  "custeio_anual": 73000.0,
+  "custeio_comprovado": false,
+  "fonte_custeio": "Orçamento municipal (LOA), função 13",
+  "beneficiarios_ano": 1602,
+  "elaborador": {
+   "tipo": "consultoria",
+   "nome": "Consultoria Fictícia Captar Projetos",
+   "cnpj": "55.666.777/0002-62",
+   "remuneracao": "fixa",
+   "valor": 17000.0
+  },
+  "representante_gov_br_ouro": true,
+  "status": "devolvido",
+  "historico": [
+   {
+    "quando": "2026-11-10",
+    "quem": "ente",
+    "acao": "cadastro"
+   },
+   {
+    "quando": "2026-11-20",
+    "quem": "MinC (curadoria)",
+    "acao": "devolvido"
+   }
+  ]
+ },
+ {
+  "id": "P017",
+  "codigo_municipio": "9910012",
+  "programa": "BIB",
+  "titulo": "Biblioteca pública em Campo do Buriti",
+  "modelo_padrao": false,
+  "maturidade": 3,
+  "custo": 924000.0,
+  "custeio_anual": 104000.0,
+  "custeio_comprovado": false,
+  "fonte_custeio": "Orçamento municipal (LOA), função 13",
+  "beneficiarios_ano": 654,
+  "elaborador": {
+   "tipo": "proprio_ente",
+   "nome": "Equipe do próprio ente",
+   "cnpj": "",
+   "remuneracao": "sem_custo",
+   "valor": 0
+  },
+  "representante_gov_br_ouro": true,
+  "status": "rascunho",
+  "historico": [
+   {
+    "quando": "2026-11-10",
+    "quem": "ente",
+    "acao": "cadastro"
+   }
+  ]
+ },
+ {
+  "id": "P018",
+  "codigo_municipio": "9910016",
+  "programa": "BIB",
+  "titulo": "Biblioteca pública em Bom Jardim das Pedras",
+  "modelo_padrao": false,
+  "maturidade": 1,
+  "custo": 568000.0,
+  "custeio_anual": 142000.0,
+  "custeio_comprovado": true,
+  "fonte_custeio": "Orçamento municipal (LOA), função 13",
+  "beneficiarios_ano": 2332,
+  "elaborador": {
+   "tipo": "consultoria",
+   "nome": "Assessoria Fictícia Cultura+",
+   "cnpj": "33.444.555/0001-81",
+   "remuneracao": "fixa",
+   "valor": 23400.0
+  },
+  "representante_gov_br_ouro": true,
+  "status": "devolvido",
+  "historico": [
+   {
+    "quando": "2026-11-10",
+    "quem": "ente",
+    "acao": "cadastro"
+   },
+   {
+    "quando": "2026-11-20",
+    "quem": "MinC (curadoria)",
+    "acao": "devolvido"
+   }
+  ]
+ },
+ {
+  "id": "P019",
+  "codigo_municipio": "9910029",
+  "programa": "BIB",
+  "titulo": "Biblioteca pública em Sítio Novo das Serras",
+  "modelo_padrao": false,
+  "maturidade": 3,
+  "custo": 512000.0,
+  "custeio_anual": 99000.0,
+  "custeio_comprovado": true,
+  "fonte_custeio": "Orçamento municipal (LOA), função 13",
+  "beneficiarios_ano": 1273,
+  "elaborador": {
+   "tipo": "proprio_ente",
+   "nome": "Equipe do próprio ente",
+   "cnpj": "",
+   "remuneracao": "sem_custo",
+   "valor": 0
+  },
+  "representante_gov_br_ouro": true,
+  "status": "certificado",
+  "historico": [
+   {
+    "quando": "2026-11-10",
+    "quem": "ente",
+    "acao": "cadastro"
+   },
+   {
+    "quando": "2026-11-20",
+    "quem": "MinC (curadoria)",
+    "acao": "certificado"
+   }
+  ]
+ },
+ {
+  "id": "P020",
+  "codigo_municipio": "9910025",
+  "programa": "CEU",
+  "titulo": "CEU da Cultura em Ponte Alta do Rio",
+  "modelo_padrao": false,
+  "maturidade": 3,
+  "custo": 2302000.0,
+  "custeio_anual": 289000.0,
+  "custeio_comprovado": true,
+  "fonte_custeio": "Orçamento municipal (LOA), função 13",
+  "beneficiarios_ano": 359,
+  "elaborador": {
+   "tipo": "osc_parceira",
+   "nome": "OSC parceira (fictícia)",
+   "cnpj": "",
+   "remuneracao": "sem_custo",
+   "valor": 0
+  },
+  "representante_gov_br_ouro": true,
+  "status": "rascunho",
+  "historico": [
+   {
+    "quando": "2026-11-10",
+    "quem": "ente",
+    "acao": "cadastro"
+   }
+  ]
+ },
+ {
+  "id": "P021",
+  "codigo_municipio": "9910020",
+  "programa": "BIB",
+  "titulo": "Biblioteca pública em Jardim das Palmeiras",
+  "modelo_padrao": true,
+  "maturidade": 4,
+  "custo": 600000.0,
+  "custeio_anual": 110000.0,
+  "custeio_comprovado": true,
+  "fonte_custeio": "Orçamento municipal (LOA), função 13",
+  "beneficiarios_ano": 2244,
+  "elaborador": {
+   "tipo": "proprio_ente",
+   "nome": "Equipe do próprio ente",
+   "cnpj": "",
+   "remuneracao": "sem_custo",
+   "valor": 0
+  },
+  "representante_gov_br_ouro": true,
+  "status": "em_curadoria",
+  "historico": [
+   {
+    "quando": "2026-11-10",
+    "quem": "ente",
+    "acao": "cadastro"
+   }
+  ]
+ },
+ {
+  "id": "P022",
+  "codigo_municipio": "9910019",
+  "programa": "BIB",
+  "titulo": "Biblioteca pública em Barra do Tamanduá",
+  "modelo_padrao": false,
+  "maturidade": 4,
+  "custo": 720000.0,
+  "custeio_anual": 150000.0,
+  "custeio_comprovado": true,
+  "fonte_custeio": "Orçamento municipal (LOA), função 13",
+  "beneficiarios_ano": 6461,
+  "elaborador": {
+   "tipo": "proprio_ente",
+   "nome": "Equipe do próprio ente",
+   "cnpj": "",
+   "remuneracao": "sem_custo",
+   "valor": 0
+  },
+  "representante_gov_br_ouro": true,
+  "status": "certificado",
+  "historico": [
+   {
+    "quando": "2026-11-10",
+    "quem": "ente",
+    "acao": "cadastro"
+   },
+   {
+    "quando": "2026-11-20",
+    "quem": "MinC (curadoria)",
+    "acao": "certificado"
+   }
+  ]
+ },
+ {
+  "id": "P023",
+  "codigo_municipio": "9910022",
+  "programa": "PTC",
+  "titulo": "Ponto de Cultura em Riachão do Sertão",
+  "modelo_padrao": true,
+  "maturidade": 4,
+  "custo": 300000.0,
+  "custeio_anual": 65000.0,
+  "custeio_comprovado": true,
+  "fonte_custeio": "Orçamento municipal (LOA), função 13",
+  "beneficiarios_ano": 526,
+  "elaborador": {
+   "tipo": "consultoria",
+   "nome": "Consultoria Fictícia Captar Projetos",
+   "cnpj": "55.666.777/0002-62",
+   "remuneracao": "fixa",
+   "valor": 20400.0
+  },
+  "representante_gov_br_ouro": true,
+  "status": "em_curadoria",
+  "historico": [
+   {
+    "quando": "2026-11-10",
+    "quem": "ente",
+    "acao": "cadastro"
+   }
+  ]
+ },
+ {
+  "id": "P024",
+  "codigo_municipio": "9910010",
+  "programa": "CEU",
+  "titulo": "CEU da Cultura em São Bento das Araras",
+  "modelo_padrao": false,
+  "maturidade": 1,
+  "custo": 3259000.0,
+  "custeio_anual": 252000.0,
+  "custeio_comprovado": true,
+  "fonte_custeio": "Orçamento municipal (LOA), função 13",
+  "beneficiarios_ano": 817,
+  "elaborador": {
+   "tipo": "proprio_ente",
+   "nome": "Equipe do próprio ente",
+   "cnpj": "",
+   "remuneracao": "sem_custo",
+   "valor": 0
+  },
+  "representante_gov_br_ouro": true,
+  "status": "em_curadoria",
+  "historico": [
+   {
+    "quando": "2026-11-10",
+    "quem": "ente",
+    "acao": "cadastro"
+   }
+  ]
+ },
+ {
+  "id": "P025",
+  "codigo_municipio": "9910002",
+  "programa": "PTC",
+  "titulo": "Ponto de Cultura em Serra Clara",
+  "modelo_padrao": false,
+  "maturidade": 3,
+  "custo": 410000.0,
+  "custeio_anual": 55000.0,
+  "custeio_comprovado": true,
+  "fonte_custeio": "Orçamento municipal (LOA), função 13",
+  "beneficiarios_ano": 8061,
+  "elaborador": {
+   "tipo": "osc_parceira",
+   "nome": "OSC parceira (fictícia)",
+   "cnpj": "",
+   "remuneracao": "sem_custo",
+   "valor": 0
+  },
+  "representante_gov_br_ouro": true,
+  "status": "em_curadoria",
+  "historico": [
+   {
+    "quando": "2026-11-10",
+    "quem": "ente",
+    "acao": "cadastro"
+   }
+  ]
+ },
+ {
+  "id": "P026",
+  "codigo_municipio": "9910014",
+  "programa": "PTC",
+  "titulo": "Ponto de Cultura em Ribeirão Sereno",
+  "modelo_padrao": true,
+  "maturidade": 4,
+  "custo": 300000.0,
+  "custeio_anual": 54000.0,
+  "custeio_comprovado": true,
+  "fonte_custeio": "Orçamento municipal (LOA), função 13",
+  "beneficiarios_ano": 850,
+  "elaborador": {
+   "tipo": "osc_parceira",
+   "nome": "OSC parceira (fictícia)",
+   "cnpj": "",
+   "remuneracao": "sem_custo",
+   "valor": 0
+  },
+  "representante_gov_br_ouro": true,
+  "status": "certificado",
+  "historico": [
+   {
+    "quando": "2026-11-10",
+    "quem": "ente",
+    "acao": "cadastro"
+   },
+   {
+    "quando": "2026-11-20",
+    "quem": "MinC (curadoria)",
+    "acao": "certificado"
+   }
+  ]
+ },
+ {
+  "id": "P027",
+  "codigo_municipio": "9910021",
+  "programa": "CEU",
+  "titulo": "CEU da Cultura em Monte Verde do Leste",
+  "modelo_padrao": true,
+  "maturidade": 4,
+  "custo": 2500000.0,
+  "custeio_anual": 241000.0,
+  "custeio_comprovado": true,
+  "fonte_custeio": "Orçamento municipal (LOA), função 13",
+  "beneficiarios_ano": 1276,
+  "elaborador": {
+   "tipo": "osc_parceira",
+   "nome": "OSC parceira (fictícia)",
+   "cnpj": "",
+   "remuneracao": "sem_custo",
+   "valor": 0
+  },
+  "representante_gov_br_ouro": true,
+  "status": "em_curadoria",
+  "historico": [
+   {
+    "quando": "2026-11-10",
+    "quem": "ente",
+    "acao": "cadastro"
+   }
+  ]
+ },
+ {
+  "id": "P028",
+  "codigo_municipio": "9910035",
+  "programa": "BIB",
+  "titulo": "Biblioteca pública em Esperança do Vale",
+  "modelo_padrao": false,
+  "maturidade": 3,
+  "custo": 720000.0,
+  "custeio_anual": 97000.0,
+  "custeio_comprovado": true,
+  "fonte_custeio": "Orçamento municipal (LOA), função 13",
+  "beneficiarios_ano": 1614,
+  "elaborador": {
+   "tipo": "consultoria",
+   "nome": "Escritório Fictício Plano Certo",
+   "cnpj": "44.555.666/0001-81",
+   "remuneracao": "fixa",
+   "valor": 20800.0
+  },
+  "representante_gov_br_ouro": true,
+  "status": "certificado",
+  "historico": [
+   {
+    "quando": "2026-11-10",
+    "quem": "ente",
+    "acao": "cadastro"
+   },
+   {
+    "quando": "2026-11-20",
+    "quem": "MinC (curadoria)",
+    "acao": "certificado"
+   }
+  ]
+ },
+ {
+  "id": "P029",
+  "codigo_municipio": "9910026",
+  "programa": "PTC",
+  "titulo": "Ponto de Cultura em Várzea Nova",
+  "modelo_padrao": false,
+  "maturidade": 3,
+  "custo": 304000.0,
+  "custeio_anual": 72000.0,
+  "custeio_comprovado": true,
+  "fonte_custeio": "Orçamento municipal (LOA), função 13",
+  "beneficiarios_ano": 278,
+  "elaborador": {
+   "tipo": "osc_parceira",
+   "nome": "OSC parceira (fictícia)",
+   "cnpj": "",
+   "remuneracao": "sem_custo",
+   "valor": 0
+  },
+  "representante_gov_br_ouro": true,
+  "status": "certificado",
+  "historico": [
+   {
+    "quando": "2026-11-10",
+    "quem": "ente",
+    "acao": "cadastro"
+   },
+   {
+    "quando": "2026-11-20",
+    "quem": "MinC (curadoria)",
+    "acao": "certificado"
+   }
+  ]
+ },
+ {
+  "id": "P030",
+  "codigo_municipio": "9910019",
+  "programa": "PTC",
+  "titulo": "Ponto de Cultura em Barra do Tamanduá",
+  "modelo_padrao": false,
+  "maturidade": 3,
+  "custo": 360000.0,
+  "custeio_anual": 51000.0,
+  "custeio_comprovado": true,
+  "fonte_custeio": "Orçamento municipal (LOA), função 13",
+  "beneficiarios_ano": 5760,
+  "elaborador": {
+   "tipo": "proprio_ente",
+   "nome": "Equipe do próprio ente",
+   "cnpj": "",
+   "remuneracao": "sem_custo",
+   "valor": 0
+  },
+  "representante_gov_br_ouro": true,
+  "status": "certificado",
+  "historico": [
+   {
+    "quando": "2026-11-10",
+    "quem": "ente",
+    "acao": "cadastro"
+   },
+   {
+    "quando": "2026-11-20",
+    "quem": "MinC (curadoria)",
+    "acao": "certificado"
+   }
+  ]
+ }
+]
